@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-hi-lga_(y3%)2d+6j7u-col-s*^q%j$ovvmjg)3mk3#ohlk*v8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mighty-island-77723.herokuapp.com']
+ALLOWED_HOSTS = ['mighty-island-77723.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -132,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/shop/accounts/login/'
 LOGIN_REDIRECT_URL = '/index/'
 LOGOUT_REDIRECT_URL = '/'
+
+CHROME_DRIVER = os.path.join(os.path.join(os.path.dirname(__file__), 'driver'), 'chromedriver')
