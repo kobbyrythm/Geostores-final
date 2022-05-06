@@ -71,7 +71,7 @@ Stat-Stack can be accessed remotely on Heroku at
 Credits go to 
 
 - Academy, V., 2022. django-ecommerce-project/test_models.py at main · veryacademy/django-ecommerce-project. [online] GitHub. Available at: https://github.com/veryacademy/django-ecommerce-project/blob/main/Part-01%20Django%20Models%20Views%20and%20Testing/Part-1%20Refactored/store/tests/test_models.py [Accessed 6 May 2022].
-- Scharlau, B., 2022. shopping_exercise_django/populate_tables.py at main · scharlau/shopping_exercise_django. [online] GitHub. Available at: https://github.com/scharlau/shopping_exercise_django/blob/main/shop/management/commands/populate_tables.py [Accessed 6 May 2022].![image](https://user-images.githubusercontent.com/62596396/167223922-cc26f824-5393-489e-b41b-29793c446fab.png)
+- Scharlau, B., 2022. shopping_exercise_django/populate_tables.py at main · scharlau/shopping_exercise_django. [online] GitHub. Available at: https://github.com/scharlau/shopping_exercise_django/blob/main/shop/management/commands/populate_tables.py [Accessed 6 May 2022].
 
 
 
