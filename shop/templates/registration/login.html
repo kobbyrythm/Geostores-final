@@ -1,0 +1,39 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<div class="login">
+  <div class="form-box">
+       <h1>GeoStore: Login</h1>
+    {% if form.errors %}
+       <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    {% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+      please login with with your registered username and password.</p>
+    {% else %}
+     
+    {% endif %}
+  {% endif %}
+ 
+ <a href = "{% url 'shop:signup' %}"> <button type="button" class="btn btn-success">Register</button> 
+  <form method="POST" action="{% url 'shop:login' %}" class="input-group"> 
+    {% csrf_token %}
+    <p>
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </p>
+    <p>
+      {{form.password.label_tag }}
+      {{form.password }}
+      <div class="button-box">
+        </p>
+      <input type="submit" name="Login"/>
+      <input type="hidden" name='next' value="{{ next}}"/>
+   </p>
+      </div>
+    
+</form>
+  </div>
+</div>
+ 
+    {% endblock %}

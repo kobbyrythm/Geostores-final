@@ -1,0 +1,24 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<body>
+   {% if movies%}
+    <h1>Your Search Results  </h1>
+    <br/>
+    {%for r in movies%}
+    <a href="shop:product_detail' product_id=product.id ">{{r.title}}- {{ r.poster}}-{{ r.genre}} -{{ r.price}}</a>
+    {{r.title}}- {{ r.poster}}-{{ r.genre}} -{{ r.price}}  <br/>
+    {%endfor%}
+
+
+{% else %}
+<h1>Movie not available in your region</h1>
+{%endif%}
+ 
+</body>
+    
+
+{% endblock %}
+
+
+<!-- <a href="{%url 'shop:product_detail' product_id=product.id %}">{{r.title}}- {{ r.poster}}-{{ r.genre}} -{{ r.price}}</a>
+    {{r.title}}- {{ r.poster}}-{{ r.genre}} -{{ r.price}} -->

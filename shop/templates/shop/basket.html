@@ -1,0 +1,46 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+    <h1>Acme Shopping: Your Basket</h1>
+    
+<h2>You have these in your basket:</h2>
+ <table>
+  {% for item in basket %}
+        {% with product=item.product %}
+          <tr>
+            <td>
+              <a href="{% url 'shop:product_detail' id=product_id %}">
+              </a>
+            </td>
+            <td>{{ product.title }}</td>
+            <td>
+              <form action="{% url 'shop:basket_add' product_id %}" method="post">
+                {{ item.update_quantity_form.quantity }}
+                {{ item.update_quantity_form.override }}
+                <input type="submit" value="Update">
+                {% csrf_token %}
+              </form>
+            </td>
+            <td>
+              <form action="{% url 'shop:basket_remove' product_id %}" method="post">
+                <input type="submit" value="Remove">
+                {% csrf_token %}
+              </form>
+            </td>
+            <td class="num">${{ item.price }}</td>
+            <td class="num">${{ item.total_price }}</td>
+          </tr>
+        {% endwith %}
+      {% endfor %}
+      <tr class="total">
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">${{ basket.get_total_price }}</td>
+      </tr>
+  </table>
+  <p class="text-right">
+    <a href="{% url "shop:index" %}" class="button
+    light">Continue shopping</a>
+  </p>
+ 
+   <a href="#">Purchase</a>
+ {% endblock %}

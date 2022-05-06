@@ -1,0 +1,99 @@
+{%extends 'shop/base.html'%} {%load static%} {%block title%} Home {%endblock%}
+{%block content%}
+
+<main>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="h1 fw-bold">Search, Watch, Buy, Review</h1>
+        <p class="lead text-muted">
+          A better place to get all your classic and latest movies.
+        </p>
+
+        <form class="d-flex" method="GET" action="{% url 'shop:search' %}">
+          {%csrf_token%}
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search Here"
+            aria-label="Search"
+            name= "search"
+
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+      <div class="pb-3 h5">All Movies</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+        <br>
+
+<br>
+        {% for product in page_obj %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img
+              class="img-fluid"
+              alt="Responsive image"
+              src="{{ product.poster }}"
+            />
+            <div class="card-body">
+              <p class="card-text">
+                <a
+                  class="text-dark text-decoration-none"
+                  href="{{ product.title }}"
+                  >{{ product.title }}</a
+                >
+              </p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">{{product.genre}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <p>
+                    <a
+                      href="{%url 'shop:product_detail' product_id=product.id %}"
+                      class="btn btn-primary"
+                      >View</a
+                    >
+                  </p>
+
+                  <a href="{% url 'shop:basket'%}">
+                    <button type="button" class="btn btn-success">Buy</button>
+                  </a>
+                </div>
+                <small class="text-muted">${{product.price}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

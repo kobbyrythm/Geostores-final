@@ -1,0 +1,106 @@
+*{
+    margin : 0;
+    padding: 0;
+
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../images/background.jpg);
+    background-size: cover;
+    background-position: center;
+} 
+
+
+.content {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: white;
+}
+
+.content h1{
+  font-size: 70px;
+  margin-top: 50px;
+
+}
+.content p {
+  margin: 20px auto;
+  font-weight: 100px;
+  line-height: 25px;
+  font-size: 25px;
+}
+
+.title{
+  font-size: 50px;
+  line-height: 100px;
+  font-weight: bold;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+button{
+  background-size: 200%;
+  background-position: left;
+  padding: 15px 25px;
+  margin: 20px;
+  font-size: 15px;
+  border: 2px solid #070707;
+  background: #ffc107;
+  transition: background-position 0.5s;
+  color: black;
+
+}
+button:hover{
+  background-position: right;
+  color: black;
+}
+
+.slider{
+  color: #ffc107;
+  margin-left: 20px;
+  box-sizing: border-box;
+  animation: slider 6s linear infinite;
+
+}
+
+@keyframes slider {
+    0%{margin-top: -400px;}
+    5%{margin-top: -200px;}
+    30%{margin-top: -200px;}
+    35%{margin-top: 0px;}
+    65%{margin-top: 0px;}
+    70%{margin-top: 200px;}
+    100%{margin-top: 200px;}
+    
+  }
+
+
+/* Styling for Login and sign up form*/
+
+
+.form-box{
+  width: 400px;
+  height: 500px;
+  position: center;
+  margin: auto ;
+  background:#070707;
+  padding: 5px;
+  border-radius: 15px 50px;
+
+}
+
+.button-box{
+  margin: 35px auto;
+  width: 220px;
+  position: relative;
+  padding: 0px 50px;
+ 
+  
+}

@@ -1,0 +1,22 @@
+{%extends 'shop/base.html'%} {%load static%} {%block title%} Cover Page
+{%endblock%} {%block content%}
+
+<div class="banner">
+  <div class="content">
+    <div class="title">
+      <div class="slider">
+        <div>Search</div>
+        <div>Browse</div>
+        <div>Buy</div>
+
+      </div>
+        all your  Favorite Movies here
+    </div>
+
+      <div class="login">
+        Login or Sign up to get started
+      </div>
+  <a href="{%url 'shop:login'%}"><button type="button">Signup</button></a>
+  </div>
+</div>
+{%endblock%}
