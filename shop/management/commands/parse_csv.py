@@ -45,7 +45,7 @@ class Command(BaseCommand):
              
 
 
-        for row in range(50):
+        for row in range(60):
             first_name = fake.first_name()
             last_name = fake.last_name()
             username = first_name+last_name,
@@ -61,7 +61,9 @@ class Command(BaseCommand):
             customer.address = str(customer.address[0])
             customer.save()
 
-            
+
+        
+        print("data parsed")
         
 
 
@@ -69,6 +71,6 @@ class Command(BaseCommand):
 
             
             
-    print("data parsed")
+    
 
    
