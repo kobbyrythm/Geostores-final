@@ -2,9 +2,9 @@ from unittest import result
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from shop.models import Cart, Customer, Order, Product
+from shop.models import Cart, Customer, Order, Product,LineItem
 from shop.forms import SignUpForm
-
+from shop.views import Basket
 
 
 def signup(request):
@@ -20,7 +20,7 @@ def signup(request):
         password = form.cleaned_data.get('password1')
         user = authenticate(username=username, password= password)
         login(request, user)
-        return redirect('/')
+        return redirect('/index/')
     return render(request, 'signup.html', {'form': form})
 
 @login_required

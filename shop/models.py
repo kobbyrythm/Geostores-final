@@ -17,6 +17,28 @@ class Customer(models.Model):
     def __str__(self):
         return str(self.user.email)
 
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Customer.objects.create(user=instance)
+    
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.customer.save()
+
+class LineItem(models.Model):
+    quantity = models.IntegerField()
+    product = models.ForeignKey('shop.Product', on_delete=models.CASCADE)
+    cart = models.ForeignKey('shop.Cart', on_delete=models.CASCADE)
+    order = models.ForeignKey('shop.Order', on_delete=models.CASCADE)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.quantity},{self.product},{self.cart},{self.order},{self.created_date}'
+
+
+
 class Product(models.Model):
     product_id = models.AutoField
     title = models.CharField(max_length=200)

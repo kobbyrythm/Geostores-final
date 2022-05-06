@@ -10,4 +10,4 @@ def product_list(request):
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     basket_product_form = BasketAddProductForm()
-    return render(request, 'shop/product_detail.html', {'product' : product,'basket_product_form': basket_product_form})
+    return render(request, 'shop/product_detail.html', {'product' : product})

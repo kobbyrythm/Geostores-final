@@ -1,8 +1,8 @@
 {% extends 'shop/base.html' %}
 {% block content %}
-    <h1>Acme Shopping: Your Basket</h1>
-    
-<h2>You have these in your basket:</h2>
+    <h1>Geostores</h1>
+    <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+<h2>Your basket:</h2>
  <table>
   {% for item in basket %}
         {% with product=item.product %}
@@ -38,9 +38,9 @@
       </tr>
   </table>
   <p class="text-right">
-    <a href="{% url "shop:index" %}" class="button
-    light">Continue shopping</a>
+    <a href="{% url "shop:index" %}"> <button type="button", class="btn btn-primary btn-sm">Continue shopping</button> </a>
   </p>
  
-   <a href="#">Purchase</a>
+   <a href="{% url "shop:purchase" %}"><button type="button", class="btn btn-dark btn-sm">Purchase</button></a>
+  </div>
  {% endblock %}

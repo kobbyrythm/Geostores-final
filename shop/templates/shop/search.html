@@ -2,11 +2,11 @@
 {% block content %}
 <body>
    {% if movies%}
-    <h1>Your Search Results  </h1>
+    <h1>Your Search Results{{search}}  </h1>
     <br/>
     {%for r in movies%}
-    <a href="shop:product_detail' product_id=product.id ">{{r.title}}- {{ r.poster}}-{{ r.genre}} -{{ r.price}}</a>
-    {{r.title}}- {{ r.poster}}-{{ r.genre}} -{{ r.price}}  <br/>
+    <a href="shop:product_detail' product_id=product.id ">{{r.title}}-{{ r.genre}} -{{ r.price}}</a>
+    {{r.title}}-{{ r.genre}} -{{ r.price}}  <br/>
     {%endfor%}
 
 

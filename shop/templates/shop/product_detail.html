@@ -34,9 +34,14 @@
                 </select>
               </div>
               <div class="col-6 text-end">
-               <a href="{% url 'shop:basket'%}"><button type="button" class="btn btn-danger btn-sm">
-                  Add to basket
-                </button></a> 
+                 <p>
+    <form action="{% url 'shop:basket_add' product.id %}" method="post">
+      {{ basket_product_form }}
+      {% csrf_token %}
+      <input type="submit" value="Add to Basket">
+    </form>
+       </p>
+               
               </div>
             </div>
           </div>

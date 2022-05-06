@@ -15,4 +15,5 @@ urlpatterns = [
         path('basket_remove/<int:product_id>/', views.basket_remove, name ='basket_remove'),
         path('basket/',views.basket, name ='basket'),
         path('search/',views.search, name= 'search'),
+        path('purchase/',views.purchase, name='purchase')
     ]

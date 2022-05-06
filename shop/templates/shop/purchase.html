@@ -1,0 +1,26 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+    <h1>Geostores
+      
+    </h1>
+    
+<h2>You have these in your basket:</h2>
+  {% for item in basket %}
+    {% with product=item.product %}
+ 
+<p>You put {{product.quantity }} of our <b> {{ product.name }} </b> which each cost {{ item.price }} and cost {{ item.total_price }} for in your basket.</p>
+     {% endwith %}
+   {% endfor %}
+ <p>The total for all of this fun is: {{ basket.get_total_price }} </p>
+   <p>
+    <form action="/payment/" method="post">
+       {% csrf_token %}
+       <p>Complete the form to buy this all for yourself</p>
+       <input type='text' name='first_name' value="{{user.first_name}}" disabled>
+       <input type='text' name='last_name' value="{{user.last_name}}" disabled><br>
+       <label for 'payment'>Card Type:</label><input type='text' size=5 name='payment'>
+       <input type="number" name="total" value="Total Payment:">
+       <input type="submit" value="Payment">
+       </form>
+       </p>
+ {% endblock %}
