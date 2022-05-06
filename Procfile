@@ -1,0 +1,1 @@
+web: gunicorn geostores.wsgi --log-file -
