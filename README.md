@@ -38,7 +38,7 @@ to view, browse, buy, search and add to cart
 #### Installation
 1. Clone the repository
 ```git
-    git clone https://github.com/SamAdefemi007/Stat-Stack-final.git
+   git@github.com:kobbyrythm/Geostores-final.git
 ```
 2. Activate virtual environment 
 ```python
